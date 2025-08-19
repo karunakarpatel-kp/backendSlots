@@ -1,11 +1,16 @@
-const express = require("express");
+import express from "express";
+import googlePlayRoutes from "./router/googlePlayRoutes.js";
+
 const app = express();
+const PORT = 5000;
 
-app.get("/", (req, res) => {
-  const obj = { message: "Hello World" };
-  res.json(obj);
-});
+// Middleware (optional: for JSON parsing)
+app.use(express.json());
 
-app.listen(5000, () => {
-  console.log("Server Running at 5k");
+// Routes
+app.use("/api", googlePlayRoutes);
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`✅ Server running at http://localhost:${PORT}`);
 });
