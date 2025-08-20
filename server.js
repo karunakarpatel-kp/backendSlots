@@ -1,10 +1,12 @@
 import express from "express";
+import cors from "cors";
 import googlePlayRoutes from "./router/googlePlayRoutes.js";
 import bodyParser from "body-parser";
 
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 // Middleware (optional: for JSON parsing)
 app.use(express.json());
