@@ -10,6 +10,7 @@
 import gplay from "google-play-scraper";
 
 export const googlePlayScrapperController = async (req, res) => {
+  console.log(req.query);
   const { appId } = req.query;
 
   if (!appId) {
